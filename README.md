@@ -119,4 +119,4 @@ Essa é a rota para quando o usuario logado quiser listar todas as categorias ca
 [Daiana Lima](https://github.com/Daian4)  
 [Caroline Morais](https://github.com/CNakamura20)  
 [Mariana Olaya](https://github.com/mariolayal)  
-[Lais Oliveira](https://github.com/laisfrr)  
+[Laís Oliveira](https://github.com/laisfrr)  
