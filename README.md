@@ -11,7 +11,16 @@ As funcionalidades disponíveis são:
 - Detalhar Perfil do Usuário Logado
 - Editar Perfil do Usuário Logado
 - Listar categorias
-
+- Cadastrar Produto
+- Editar dados do Produto
+- Listar Produtos
+- Detalhar Produto
+- Excluir Produto por ID
+- Cadastrar Cliente
+- Editar dados do Cliente
+- Listar Clientes
+- Detalhar Cliente
+  
 ## **Deploy**
 
 O PDV Express foi implantado via Cyclic e pode ser acessado [por aqui](https://perfect-plum-pronghorn.cyclic.app/).  
@@ -162,8 +171,135 @@ Essa é a rota para quando o usuario logado quiser listar todas as categorias ca
   Não é necessária nenhuma informação além do token de autenticação.  
   Como resposta, as categorias são exibidas em formato de array de objetos, tendo cada categoria o seu próprio ID de referência. 
 <img src='./img/listarCategorias.png'>
+</details>  
+<details><summary>
+
+### Cadastrar Produto
+</summary> 
+
+#### `POST` `/produto`
+
+Essa é a rota que será utilizada para cadastrar um novo produto no sistema.
+**Atenção:** Certificar-se de que o token de autenticação está sendo enviado. 
+
+- **Requisição**  
+  O corpo (body) deverá possuir um objeto com as propriedades mostradas na imagem. O retorno desta requisição, em caso de sucesso, exibirá os dados de entrada junto ao ID do produto.  
+<img src='./img/cadastrarProduto.png'>
+</details>  
+<details><summary>
+
+### Editar dados do produto
+</summary> 
+
+#### `PUT` `/produto/:id`
+
+Essa é a rota para quando o usuario logado quiser atualizar as infromações de um produto cadastrado. 
+**Atenção:** Certificar-se de que o token de autenticação está sendo enviado. 
+
+- **Requisição**  
+ O corpo (body) deverá possuir um objeto com as propriedades mostradas na imagem. Deverá ser enviado o ID do produto a ser editado como parâmetro de rota do endpoint como pode ser visto abaixo. O retorno desta requisição, para caso de sucesso, será a mensagem de que o produto foi atualizado. 
+<img src='./img/alterarProduto.png'>
+</details>  
+<details><summary>
+
+### Listar Produtos
+</summary> 
+
+#### `GET` `/produto`
+
+Essa é a rota que deverá ser usada para quando o usuário logado quiser listar todos os produtos cadastrados.
+**Atenção:** Certificar-se de que o token de autenticação está sendo enviado. 
+
+- **Requisição**  
+  Não é necessário nenhum objeto no corpo da requisição. Porém, é preciso incluir um parâmetro do tipo query `categoria_id` para que seja possível consultar produtos por categorias. Então, caso informado, os produtos serão filtrados de acordo com o id de uma categoria. Se não enviado nenhum filtro como query, serão listados todos os produtos cadastrados. 
+</details>  
+<details><summary>
+
+### Detalhar Produto
+</summary> 
+
+#### `GET` `/produto/:id`
+
+Essa é a rota que deverá ser acessada para quando o usuário logado obter um de seus produtos cadastrados. 
+**Atenção:** Certificar-se de que o token de autenticação está sendo enviado. 
+
+- **Requisição**
+Deverá ser enviado o ID do produto a ser editado como parâmetro de rota do endpoint como pode ser visto abaixo. Como resposta, as categorias são exibidas em formato de array de objetos, tendo cada categoria o seu próprio ID de referência. O retorno desta requisição, em caso de sucesso, exibirá todos os dados do produto. 
+<img src='./img/detalharProduto.png'>
+</details>  
+<details><summary>
+
+### Excluir Produto por ID
+</summary> 
+
+#### `DELETE` `/produto/:id`
+
+Essa é a rota que deverá ser utilizada para quando o usuário logado quiser excluir um de seus produtos cadastrados.
+**Atenção:** Certificar-se de que o token de autenticação está sendo enviado. 
+
+- **Requisição**  
+Deverá ser enviado o ID do produto a ser editado como parâmetro de rota do endpoint como pode ser visto abaixo. O retorno desta requisição, para caso de sucesso, será a mensagem de que o produto foi excluído. 
 </details> 
+<details><summary>
+
+### Cadastrar Cliente
+</summary> 
+
+#### `POST ` `/cliente`
+
+Essa é a rota que será utilizada para cadastrar um novo produto no sistema.
+**Atenção:** Certificar-se de que o token de autenticação está sendo enviado. 
+
+- **Requisição**  
+O corpo (body) deverá possuir um objeto com, no mínimo, as propriedades de nome, email e CPF. As demais informações não são obrigatótórias e, portanto, não precisam necessariamente fazer parte do corpo da requisição. O retorno desta requisição, em caso de sucesso, exibirá os dados de entrada junto ao ID do cliente. 
+<img src='./img/cadastrarCliente.png'>
+</details>  
+<details><summary>
+
+### Editar dados do cliente
+</summary> 
+
+#### `PUT` `/cliente/:id`
+
+Essa é a rota que será utilizada a fim de permitir que o usuário consiga realizar atualização de um cliente cadastrado. 
+**Atenção:** Certificar-se de que o token de autenticação está sendo enviado. 
+
+- **Requisição**  
+O corpo (body) deverá possuir um objeto com, no mínimo, as propriedades de nome, email e CPF. As demais informações não são obrigatótórias e, portanto, não precisam necessariamente fazer parte do corpo da requisição. Atentar-se em enviar o ID do cliente a ser editado como parâmetro de rota do endpoint como pode ser visto abaixo. O retorno desta requisição, em caso de sucesso, exibirá uma mensagem informando que o cliente foi atualizado.
+<img src='./img/editarCliente.png'>
+</details>  
+<details><summary>
+
+### Listar Clientes
+</summary> 
+
+#### `GET` `/cliente`
+
+Essa é a rota que será chamada para quando o usuário logado quiser listar todos os clientes cadastrados.
+**Atenção:** Certificar-se de que o token de autenticação está sendo enviado. 
+
+- **Requisição**  
+  Não é necessária nenhuma informação além do token de autenticação.  
+  Como resposta, serão listados todos os clientes cadastrados.
+<img src='./img/listarClientes.png'>
 </details> 
+<details><summary>
+
+### Detalhar Cliente
+</summary> 
+
+#### `GET` `/cliente/:id`
+
+Essa é a rota para quando o usuário logado quiser obter um de seus clientes cadastrados.
+**Atenção:** Certificar-se de que o token de autenticação está sendo enviado. 
+
+- **Requisição**  
+Deverá ser enviado o ID do cliente procurado como parâmetro de rota do endpoint como pode ser visto abaixo.  
+  Como resposta, em caso da existência do cliente buscaom, serão exibidos os dados do cliente. 
+</details> 
+</details>  
+
+---  
 
 ## ✒️ Autoras
 [Bianca Aparecida](https://github.com/biancaaparecida07)  
