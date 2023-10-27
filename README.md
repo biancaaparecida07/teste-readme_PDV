@@ -208,7 +208,7 @@ Essa é a rota que será utilizada para cadastrar um novo produto no sistema.
 **Atenção:** Certificar-se de que o token de autenticação está sendo enviado.
 
 - **Requisição**  
- O corpo (body) deverá possuir um objeto com as propriedades mostradas na imagem. O retorno desta requisição, em caso de sucesso, exibirá os dados de entrada junto ao ID do produto.  
+ O corpo (body) deverá possuir um objeto com as propriedades mostradas na imagem. No body, é selecionado a estrutura de Multipart Form, permitindo que, caso queira, o usuário cadastre junto ao produto, uma imagem do mesmo. O retorno desta requisição, em caso de sucesso, exibirá os dados de entrada junto ao ID do produto.  
 <img src='./img/cadastrarProduto.png'>
 </details>  
 <details><summary>
@@ -264,7 +264,7 @@ Deverá ser enviado o ID do produto a ser editado como parâmetro de rota do end
 
 #### `DELETE` `/produto/:id`
 
-Essa é a rota que deverá ser utilizada para quando o usuário logado quiser excluir um de seus produtos cadastrados. Deverá ser aplicada uma regra de negócio que não permitirá exclusão de produto que tenha sido registrado em algum pedido.
+Essa é a rota que deverá ser utilizada para quando o usuário logado quiser excluir um de seus produtos cadastrados. Não será permitida a exclusão de produto que tenha sido registrado em algum pedido.
 **Atenção:** Certificar-se de que o token de autenticação está sendo enviado.
 
 - **Requisição**  
